@@ -69,6 +69,11 @@ function DealCard({ deal }: Props) {
             <span>{livingArea} ft²</span>
           </p>
 
+          <p>
+            <span>built in {deal.zillowData?.yearBuilt ?? "-"}</span>
+            <span>{deal.zillowData?.lotSize ?? "-"} lot size</span>
+          </p>
+
           <p>{deal.address?.formattedAddress?.split(",")?.[0] ?? "-"}</p>
 
           <p>

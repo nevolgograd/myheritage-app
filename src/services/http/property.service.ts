@@ -204,29 +204,24 @@ class ProperyHttpService extends HttpService {
       const startIndex =
         payload?.page && payload?.page !== 1 ? pageSize * payload.page - 1 : 0;
 
-      if (payload?.filters && Object.keys(payload.filters).length) {
-        const total = response.deals.filter((d) =>
-          this.fakeDealsFilter(d, payload.filters as DealFilters),
-        );
+      const total =
+        payload?.filters && Object.keys(payload.filters).length
+          ? response.deals.filter((d) =>
+              this.fakeDealsFilter(d, payload.filters as DealFilters),
+            )
+          : response.deals;
 
-        const totalSorted = !payload?.sort
-          ? total
-          : total.toSorted(
-              payload.sort === "newest"
-                ? this.fakeSortDescending
-                : this.fakeSortAscending,
-            );
-
-        return {
-          deals: [...totalSorted].splice(startIndex, pageSize),
-          total: totalSorted.length,
-          pageSize,
-        };
-      }
+      const totalSorted = !payload?.sort
+        ? total
+        : total.toSorted(
+            payload.sort === "newest"
+              ? this.fakeSortDescending
+              : this.fakeSortAscending,
+          );
 
       return {
-        deals: [...response.deals].splice(startIndex, pageSize),
-        total: response.deals.length,
+        deals: [...totalSorted].splice(startIndex, pageSize),
+        total: totalSorted.length,
         pageSize,
       };
     }

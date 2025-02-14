@@ -35,8 +35,7 @@ type FilterState = {
 };
 
 function FiltersModal() {
-  const { data } = useHomePageContext();
-
+  const { searchParams, data, isLoading } = useHomePageContext();
   const popoverRef = useRef<HTMLDialogElement | null>(null);
 
   const [formState, setFormState] = useState<FilterState>({
@@ -56,24 +55,20 @@ function FiltersModal() {
     other: [],
   });
 
+  React.useEffect(() => {
+    if (!isLoading) {
+      setFormState((searchParams ?? {}) as unknown as FilterState);
+    }
+  }, [isLoading, searchParams]);
+
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-      //@ts-ignore
       const { name, value, type } = event.target;
 
       if (type !== "checkbox") {
         setFormState((prev) => ({ ...prev, [name]: value }));
         return;
       }
-
-      // setFormState((prev) => ({
-      //   ...prev,
-      //   [name]: checked
-      //     ? [...(prev[name as keyof FilterState] as string[]), value]
-      //     : (prev[name as keyof FilterState] as string[]).filter(
-      //         (v) => v !== value,
-      //       ),
-      // }));
     },
     [],
   );
@@ -102,6 +97,7 @@ function FiltersModal() {
 
           <div className="buttons-block">
             <button
+              type="button"
               className="cancel-btn"
               popoverTarget={styles.modalDialog}
               popoverTargetAction="hide"
@@ -121,7 +117,7 @@ function FiltersModal() {
                   type="checkbox"
                   name="homeTypes"
                   value={type}
-                  checked={formState.homeTypes.includes(type)}
+                  checked={formState.homeTypes?.includes(type)}
                   onChange={handleChange}
                 />
                 {type}
@@ -238,7 +234,7 @@ function FiltersModal() {
                 type="checkbox"
                 name="other"
                 value={option}
-                checked={formState.other.includes(option)}
+                checked={formState.other?.includes(option)}
                 onChange={handleChange}
               />
               {option}
