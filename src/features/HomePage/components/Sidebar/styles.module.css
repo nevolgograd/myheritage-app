@@ -2,6 +2,7 @@
     min-width: 680px;
     width: 680px;
     overflow-y: auto;
+    padding-bottom: 200px;
 
     & :global(div.search-header) {
         padding: 22px 32px;
