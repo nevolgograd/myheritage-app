@@ -1,0 +1,81 @@
+.label {
+    display: grid;
+    font-weight: 600;
+    color: rgb(34, 34, 34);
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.customSelect {
+    width: 450px;
+    height: 54px;
+
+    padding: 6px 12px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+
+    box-shadow: none !important;
+    cursor: default;
+    outline: 0px !important;
+    transition: border-color 100ms;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    border-radius: 8px;
+    border: 2px solid rgb(222, 222, 222);
+
+    font-size: 16px;
+    line-height: 26px;
+    color: rgb(34, 34, 34);
+    background-color: rgb(255, 255, 255);
+
+    appearance: base-select;
+
+    &:hover {
+        border-color: rgb(34, 34, 34);
+    }
+
+    &::picker(select) {
+        appearance: base-select;
+    }
+
+    /* style the button */
+    ::select-fallback-button {
+        background: gold;
+        font-size: 1.2rem;
+    }
+
+    /* style the picker dropdown */
+    ::picker(select) {
+        border-radius: 1rem;
+    }
+
+    /* style the options */
+    & option {
+        padding: 0.5rem 1rem 0.5rem 0;
+        font-size: 1.2rem;
+    }
+
+    /* style selected option in the dropdown */
+    & option:checked {
+        background: #d3d3d33d;
+    }
+
+    /* hide checkmark */
+    & option::before {
+        display: none;
+    }
+
+    /* style the option on hover or focus */
+    & option:hover,
+    & option:focus-visible {
+        background-color: #d3d3d33d;
+    }
+
+    & > div {
+        max-height: 300px;
+    }
+}

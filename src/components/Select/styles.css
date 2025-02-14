@@ -1,0 +1,42 @@
+/* enter custom mode */
+select,
+::picker(select) {
+    appearance: base-select;
+}
+
+/* style the button */
+::select-fallback-button {
+    background: gold;
+    font-family: fantasy;
+    font-size: 1.2rem;
+}
+
+/* style the picker dropdown */
+::picker(select) {
+    border-radius: 1rem;
+}
+
+/* style the options */
+option {
+    font-family: monospace;
+    padding: 0.5rem 1rem 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+/* style selected option in the dropdown */
+option:checked {
+    background: powderblue;
+}
+
+/* style the option on hover or focus */
+option:hover,
+option:focus-visible {
+    background-color: pink;
+}
+
+/* style the active option indicator */
+option::before {
+    content: "🩷";
+    font-size: 80%;
+    margin: 0.5rem;
+}

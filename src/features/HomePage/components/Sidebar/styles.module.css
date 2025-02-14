@@ -1,0 +1,175 @@
+.deals {
+    min-width: 680px;
+    width: 680px;
+    overflow-y: auto;
+
+    & :global(div.search-header) {
+        padding: 22px 32px;
+        padding-right: 0;
+
+        & > h1,
+        & > p {
+            margin: 0;
+        }
+
+        & > h1 {
+            font-size: 1rem;
+            line-height: 1.15;
+            margin: 0 0 4px;
+        }
+
+        & > p {
+            font-size: 0.875rem;
+            line-height: 1.5rem;
+            height: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        & :global(div.seach-actions) {
+            display: grid;
+            grid-gap: 8px;
+            grid-auto-flow: column;
+            place-content: start;
+
+            & :global(button.filters-btn) {
+                width: max-content;
+                height: 30px;
+
+                display: grid;
+                grid-auto-flow: column;
+                place-items: center;
+                grid-gap: 8px;
+
+                padding: 4.5px 8px 4.5px 8px;
+                cursor: pointer;
+
+                font-weight: 600;
+                background-color: #fff;
+                border: 2px solid #222;
+                border-radius: 8px;
+                color: #222;
+
+                font-size: 12px;
+                line-height: 100%;
+
+                & svg {
+                    width: 16px;
+                    height: 16px;
+                }
+
+                & :global(div.count) {
+                    width: 16px;
+                    height: 16px;
+
+                    display: grid;
+                    place-content: center;
+
+                    background-color: #fff;
+                    border-radius: 32px;
+                    border: 1px solid #fff;
+
+                    color: #222;
+                }
+
+                &[data-is-active="true"] {
+                    color: #fff;
+                    background-color: #222;
+
+                    & svg {
+                        display: none;
+                    }
+                }
+
+                transition: opacity 0.2s;
+                &[disabled] {
+                    opacity: 0.4;
+                }
+            }
+        }
+
+        & :global(div.empty-state) {
+            display: grid;
+
+            & h3 {
+                margin: 20px;
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+            & button {
+                place-self: center;
+
+                width: 300px;
+                min-height: 52px;
+
+                cursor: pointer;
+
+                border: none;
+                border-radius: 8px;
+                background: #1c85e8;
+
+                font-size: 0.875rem;
+                font-weight: 600;
+                color: #fff;
+            }
+        }
+    }
+
+    & :global(div.loader-wrapper) {
+        height: 100%;
+        display: grid;
+        place-content: center;
+        place-items: center;
+    }
+
+    & :global(div.property-list) {
+        padding: 0 22px 0 28px;
+
+        & > a,
+        & > div {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        & :global(div.banner) {
+            width: calc(100% + 50px);
+            height: 90px;
+
+            margin-left: -28px;
+            display: grid;
+            place-items: center;
+            place-content: center;
+
+            color: #fff;
+            background-color: #239ded;
+        }
+    }
+}
+
+.sortSelect {
+    width: max-content;
+    height: 30px;
+
+    padding: 4.5px 8px 4.5px 8px;
+    cursor: pointer;
+
+    font-weight: 600;
+    background-color: #fff;
+    border: 2px solid #222;
+    border-radius: 8px;
+    color: #222;
+
+    font-size: 12px;
+    line-height: 100%;
+
+    & option {
+        font-size: 12px;
+        color: #222;
+        line-height: 22px;
+    }
+
+    transition: opacity 0.2s;
+    &[disabled] {
+        opacity: 0.4;
+    }
+}

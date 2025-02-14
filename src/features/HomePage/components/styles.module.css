@@ -1,0 +1,38 @@
+.homepage {
+    height: 100dvh; /* Uses the dynamic viewport height */
+    /* overflow: auto; */
+    overflow: hidden;
+
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "map sidebar";
+    grid-template-columns: 1fr 680px;
+    grid-template-rows: max-content;
+
+    & > header {
+        grid-area: header;
+    }
+
+    & > aside {
+        grid-area: sidebar;
+    }
+
+    & > div {
+        grid-area: map;
+    }
+}
+
+.map {
+    width: calc(100vw - 680px);
+
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+/*
+:global(.page) {
+    margin: 50px;
+} */

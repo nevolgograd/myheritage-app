@@ -1,0 +1,42 @@
+{
+  "include": ["./src/**/*", "./**/*"],
+  "exclude": ["node_modules"],
+  // "files": ["./global.d.ts"],
+
+  "compilerOptions": {
+    // "rootDirs": ["src"],
+
+    "sourceMap": true,
+    "incremental": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+
+    /* Base Options: */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "noEmit": true,
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "jsx": "react",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+
+    /* Strictness */
+    "strict": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": "./"
+  }
+}
